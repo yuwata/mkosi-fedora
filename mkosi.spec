@@ -1,5 +1,5 @@
 Name:           mkosi
-Version:        1
+Version:        2
 Release:        1%{?dist}
 Summary:        Create legacy-free OS images
 
@@ -45,5 +45,8 @@ install -Dpt %{buildroot}%{_bindir}/ mkosi
 %_bindir/mkosi
 
 %changelog
+* Fri Jun 23 2017 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 2-1
+- Update to latest version (#1464285)
+
 * Thu Nov  3 2016 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 1-1
 - Initial version
