@@ -49,6 +49,10 @@ install -Dpt %{buildroot}%{_bindir}/ mkosi
 %doc README.md
 %_bindir/mkosi
 
+%check
+# just a smoke test for syntax or import errors
+%buildroot/usr/bin/mkosi --help
+
 %changelog
 * Sat Feb 10 2018 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 4-1
 - Update to latest version (#1544123)
