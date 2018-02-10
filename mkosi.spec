@@ -1,11 +1,12 @@
 Name:           mkosi
 Version:        4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Create legacy-free OS images
 
 License:        LGPLv2+
 URL:            https://github.com/systemd/mkosi
 Source0:        https://github.com/systemd/mkosi/archive/v%{version}/%{name}-%{version}.tar.gz
+Patch0001:	0001-Check-architecture-lazily.patch
 
 BuildArch:      noarch
 
@@ -35,7 +36,7 @@ may be generated. Moreover, for bootable images only EFI systems are
 supported (not plain MBR/BIOS).
 
 %prep
-%autosetup
+%autosetup -p1
 
 %build
 # no build required
@@ -54,7 +55,7 @@ install -Dpt %{buildroot}%{_bindir}/ mkosi
 %buildroot/usr/bin/mkosi --help
 
 %changelog
-* Sat Feb 10 2018 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 4-1
+* Sat Feb 10 2018 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 4-2
 - Update to latest version (#1544123)
 
 * Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 2-2
