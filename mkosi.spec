@@ -22,6 +22,7 @@ Recommends:     xz
 Recommends:     tar
 Recommends:     btrfs-progs
 Recommends:     dosfstools
+Recommends:     e2fsprogs
 Recommends:     squashfs-tools
 Recommends:     veritysetup
 
