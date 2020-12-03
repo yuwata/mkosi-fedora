@@ -1,5 +1,5 @@
 Name:           mkosi
-Version:        6
+Version:        8
 Release:        1%{?dist}
 Summary:        Create legacy-free OS images
 
@@ -58,6 +58,9 @@ python3 -m pip install --root=%{buildroot} .
 %buildroot/usr/bin/mkosi --help
 
 %changelog
+* Thu Dec  3 2020 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 8-1
+- Update to latest version (#1903407)
+
 * Sat Oct  3 2020 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 6-1
 - Update to latest version (#1884879)
 
