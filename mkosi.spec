@@ -1,5 +1,5 @@
 Name:           mkosi
-Version:        8
+Version:        9
 Release:        1%{?dist}
 Summary:        Create legacy-free OS images
 
@@ -40,10 +40,10 @@ supported (not plain MBR/BIOS).
 %autosetup -p1
 
 %build
-# no build required
+%py3_build
 
 %install
-python3 -m pip install --root=%{buildroot} .
+%py3_install
 
 %files
 %license LICENSE
@@ -55,9 +55,12 @@ python3 -m pip install --root=%{buildroot} .
 
 %check
 # just a smoke test for syntax or import errors
-%buildroot/usr/bin/mkosi --help
+%buildroot/usr/bin/mkosi --help >/dev/null
 
 %changelog
+* Sat Jan  2 2021 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 9-1
+- Update to latest version (#1903407)
+
 * Thu Dec  3 2020 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 8-1
 - Update to latest version (#1903407)
 
