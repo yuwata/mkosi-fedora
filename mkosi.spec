@@ -1,7 +1,7 @@
 Name:           mkosi
 Version:        9
 Release:        4%{?dist}
-Summary:        Create legacy-free OS images
+Summary:        Create bespoke OS images
 
 License:        LGPLv2+
 URL:            https://github.com/systemd/mkosi
