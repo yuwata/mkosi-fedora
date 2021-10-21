@@ -26,6 +26,8 @@ Recommends:     arch-install-scripts
 Recommends:     edk2-ovmf
 Recommends:     btrfs-progs
 Recommends:     dosfstools
+Recommends:     cpio
+Recommends:     zstd
 Recommends:     python3dist(argcomplete)
 %endif
 
