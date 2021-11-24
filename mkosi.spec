@@ -1,5 +1,5 @@
 Name:           mkosi
-Version:        10
+Version:        11
 Release:        %autorelease
 Summary:        Create bespoke OS images
 
@@ -10,6 +10,7 @@ Source0:        https://github.com/systemd/mkosi/archive/v%{version}/%{name}-%{v
 BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-pytest
 
 %global recoreq %{?el7:Requires}%{!?el7:Recommends}
 
@@ -36,10 +37,9 @@ A fancy wrapper around "dnf --installroot", "debootstrap" and
 "pacstrap", that may generate disk images with a number of bells and
 whistles.
 
-Generated images are "legacy-free". This means only GPT disk labels
-(and no MBR disk labels) are supported, and only systemd based images
-may be generated. Moreover, for bootable images only EFI systems are
-supported (not plain MBR/BIOS).
+Generated images are tailed to the purose. This means GPT disk labels
+are used by default, though MBR disk labels are supported, and only
+systemd based images may be generated.
 
 %prep
 %autosetup -p1
@@ -59,6 +59,8 @@ supported (not plain MBR/BIOS).
 %_mandir/man1/mkosi.1*
 
 %check
+%pytest tests/ -v
+
 # just a smoke test for syntax or import errors
 %buildroot/usr/bin/mkosi --help >/dev/null
 
