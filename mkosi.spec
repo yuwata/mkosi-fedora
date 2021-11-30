@@ -1,5 +1,5 @@
 Name:           mkosi
-Version:        11
+Version:        12
 Release:        %autorelease
 Summary:        Create bespoke OS images
 
@@ -30,6 +30,7 @@ Recommends:     dosfstools
 Recommends:     cpio
 Recommends:     zstd
 Recommends:     python3dist(argcomplete)
+Recommends:     python3dist(cryptography)
 %endif
 
 %description
