@@ -1,5 +1,5 @@
 Name:           mkosi
-Version:        12
+Version:        13
 Release:        %autorelease
 Summary:        Create bespoke OS images
 
@@ -7,12 +7,12 @@ License:        LGPLv2+
 URL:            https://github.com/systemd/mkosi
 Source0:        https://github.com/systemd/mkosi/archive/v%{version}/%{name}-%{version}.tar.gz
 
-Patch:          0001-py3.11-fix-Enum-formatting-to-work-with-python3.11-a.patch
-
 BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-pytest
+BuildRequires:  binutils
+BuildRequires:  python3dist(pexpect)
 
 %global recoreq %{?el7:Requires}%{!?el7:Recommends}
 
@@ -23,6 +23,7 @@ BuildRequires:  python3-pytest
 %{recoreq}:     e2fsprogs
 %{recoreq}:     squashfs-tools
 %{recoreq}:     veritysetup
+%{recoreq}:     binutils
 %if 0%{?el7} == 0
 Recommends:     debootstrap
 Recommends:     arch-install-scripts
@@ -33,6 +34,7 @@ Recommends:     cpio
 Recommends:     zstd
 Recommends:     python3dist(argcomplete)
 Recommends:     python3dist(cryptography)
+Recommends:     python3dist(pexpect)
 %endif
 
 %description
