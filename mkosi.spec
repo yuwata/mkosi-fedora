@@ -65,7 +65,8 @@ may be generated.
 
 %check
 %pytest tests/ -v \
-  -k 'not test_copy_file and not test_def'
+  --ignore=tests/test_config_parser.py \
+  -k 'not test_copy_file'
 
 # just a smoke test for syntax or import errors
 %buildroot/usr/bin/mkosi --help >/dev/null
