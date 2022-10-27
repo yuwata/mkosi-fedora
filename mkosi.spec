@@ -1,5 +1,5 @@
 Name:           mkosi
-Version:        13
+Version:        14
 Release:        %autorelease
 Summary:        Create bespoke OS images
 
@@ -42,9 +42,9 @@ A fancy wrapper around "dnf --installroot", "debootstrap" and
 "pacstrap", that may generate disk images with a number of bells and
 whistles.
 
-Generated images are tailed to the purose. This means GPT disk labels
-are used by default, though MBR disk labels are supported, and only
-systemd based images may be generated.
+Generated images are tailored to the purose. This means GPT disk labels are used
+by default, though MBR disk labels are supported, and only systemd based images
+may be generated.
 
 %prep
 %autosetup -p1
