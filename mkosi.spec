@@ -84,11 +84,15 @@ Recommends:     zstd
 Recommends:     xz
 
 %description
-A fancy wrapper around "dnf --installroot", "apt-get", "pacman", "zypper", and
-"emerge" to generate disk images with a number of bells and whistles.
+A fancy wrapper around "dnf --installroot", "apt", "pacman", and "zypper" that
+generates disk images with a number of bells and whistles.
 
-Generated images are tailored to the purpose. This means GPT disk labels are
-used and only systemd-based images may be generated.
+Generated images are tailored to the purpose: GPT or DOS partitions,
+systemd-boot or grub2, images for containers, VMs, initrd, and extensions.
+
+Mkosi can boot an image via QEMU or systemd-nspawn, or simply start a shell in
+chroot, burn the image to a device, connect to a running VM via ssh, extract
+logs and coredumps, and also serve an image over HTTP.
 
 %prep
 %autosetup -p1
