@@ -94,6 +94,18 @@ Mkosi can boot an image via QEMU or systemd-nspawn, or simply start a shell in
 chroot, burn the image to a device, connect to a running VM via ssh, extract
 logs and coredumps, and also serve an image over HTTP.
 
+%package initrd
+Summary:       Build initrds locally using mkosi
+Requires:      %{name} = %{version}-%{release}
+Requires:      (dnf5 or dnf)
+
+%description initrd
+This package provides the plugin for kernel-install to build initrds with
+mkosi locally.
+
+After the package is installed, the plugin can be enabled by writing
+'initrd_generator=mkosi-initrd' to '/etc/kernel/install.conf'.
+
 %prep
 %autosetup -p1
 
@@ -113,11 +125,19 @@ mkdir -p %{buildroot}%{_mandir}/man1
 ln -s -t %{buildroot}%{_mandir}/man1/ \
          ../../../..%{python3_sitelib}/mkosi/resources/mkosi.1
 
+# Install the kernel-install plugin
+install -Dt %{buildroot}%{_prefix}/lib/kernel/install.d/ \
+         kernel-install/50-mkosi.install
+mkdir -p %{buildroot}%{_prefix}/lib/mkosi-initrd
+
 %files -f %pyproject_files
 %license LICENSE
 %doc README.md
 %_bindir/mkosi
 %_mandir/man1/mkosi.1*
+
+%files initrd
+%_prefix/lib/kernel/install.d/50-mkosi.install
 
 %check
 %if %{with tests}
